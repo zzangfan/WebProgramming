@@ -48,6 +48,10 @@ public class BeatBoxSaveOnly {  // implements MetaEventListener
           JButton stop = new JButton("Stop");
           stop.addActionListener(new MyStopListener());
           buttonBox.add(stop);
+            
+          JButton update=new JButton("Update");
+          update.addActionListener(new MyUpdataListener());
+          buttonBox.add(update);
 
           JButton upTempo = new JButton("Tempo Up");
           upTempo.addActionListener(new MyUpTempoListener());
@@ -169,6 +173,13 @@ public class BeatBoxSaveOnly {  // implements MetaEventListener
        public void actionPerformed(ActionEvent a) {
            sequencer.stop();
        }
+    }
+      
+    public class MyUpdateListener implements ActionListener{
+          public void actionPerformed(ActionEvent a){
+                sequencer.stop();
+                buildTrackAndStart();
+          }
     }
 
     public class MyUpTempoListener implements ActionListener {
