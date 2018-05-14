@@ -48,6 +48,10 @@ public class BeatBoxSaveOnly {  // implements MetaEventListener
           JButton stop = new JButton("Stop");
           stop.addActionListener(new MyStopListener());
           buttonBox.add(stop);
+            
+          JButton update=new JButton("Update");
+          update.addActionListener(new MyUpdataListener());
+          buttonBox.add(update);
 
           JButton upTempo = new JButton("Tempo Up");
           upTempo.addActionListener(new MyUpTempoListener());
@@ -64,6 +68,10 @@ public class BeatBoxSaveOnly {  // implements MetaEventListener
           JButton restore = new JButton("Restore");     // new button
           restore.addActionListener(new MyReadInListener());
           buttonBox.add(restore);
+            
+          JButton reset=new JButton("reset"); //리셋 버튼
+          reset.addActionListener(new MyResetListener());
+          buttonBox.add(reset);
 
           Box nameBox = new Box(BoxLayout.Y_AXIS);
           for (int i = 0; i < 16; i++) {
@@ -170,6 +178,13 @@ public class BeatBoxSaveOnly {  // implements MetaEventListener
            sequencer.stop();
        }
     }
+      
+    public class MyUpdateListener implements ActionListener{
+          public void actionPerformed(ActionEvent a){
+                sequencer.stop();
+                buildTrackAndStart();
+          }
+    }
 
     public class MyUpTempoListener implements ActionListener {
        public void actionPerformed(ActionEvent a) {
@@ -241,6 +256,22 @@ public class BeatBoxSaveOnly {  // implements MetaEventListener
         buildTrackAndStart();
       } // close method
   } // close inner class
+      
+      
+      public class MyResetListener implements ActionListener{
+            
+            public void actionPerformed(ActionEvent a){
+                  for(int i=0; i<256; i++){
+                       (checkboxList.get(i)).setSelected(false);
+                        
+                  }
+                   sequencer.stop();
+                  
+                  
+                  
+                 }
+            
+      }
 
 
 //==============================================================       
