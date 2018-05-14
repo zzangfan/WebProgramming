@@ -31,7 +31,7 @@ public class BeatBoxSaveOnly {  // implements MetaEventListener
       }
 
       public void buildGUI() {
-          theFrame = new JFrame("Cyber BeatBox");
+          theFrame = new JFrame("Test BeatBox");
           theFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
           BorderLayout layout = new BorderLayout();
           JPanel background = new JPanel(layout);
